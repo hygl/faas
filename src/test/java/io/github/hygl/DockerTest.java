@@ -3,6 +3,7 @@ package io.github.hygl;
 import org.junit.Test;
 
 import com.spotify.docker.client.DefaultDockerClient;
+import com.spotify.docker.client.DockerCertificateException;
 import com.spotify.docker.client.DockerClient;
 import com.spotify.docker.client.DockerException;
 import com.spotify.docker.client.messages.ContainerConfig;
@@ -10,8 +11,9 @@ import com.spotify.docker.client.messages.ContainerConfig;
 public class DockerTest {
 
 	@Test
-	public void testDocker() throws DockerException, InterruptedException {
-		final DockerClient docker = new DefaultDockerClient("unix:///var/run/docker.sock");
+	public void testDocker() throws DockerException, InterruptedException, DockerCertificateException {
+		final DockerClient docker = DefaultDockerClient.fromEnv().build();
+		//new DefaultDockerClient("unix:///var/run/docker.sock");
 		docker.pull("hello-world");
 		final ContainerConfig containerConfig = ContainerConfig.builder().image("hello-world").build();
 		

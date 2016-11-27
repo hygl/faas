@@ -28,4 +28,9 @@ public class FaasApplicationTests {
 		}
 		System.out.println("Found key " + key + ", value=" + ops.get(key));
 	}
+	
+	@Test
+	public void testRedisMessaging() {
+		template.convertAndSend("run", "HELLO FROM REDIS!");
+	}
 }

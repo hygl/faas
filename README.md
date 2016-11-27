@@ -17,3 +17,12 @@ Even push it to a repository of your choice:
 ```sh
 $ ./mvnw clean package docker:build -DpushImage
 ```
+## Test
+
+At the moment the tests need a running redis daemon. 
+
+```sh
+docker run -d -p 6379:6379 redis:3.0.7
+```
+
+I am trying to solve this programmatically in the future. 
