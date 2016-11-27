@@ -22,4 +22,6 @@ target/
 .project
 .settings
 .springBeans
-#
+#### IDEA ###
+.idea
+
