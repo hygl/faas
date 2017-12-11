@@ -22,7 +22,7 @@ $ ./mvnw clean package docker:build -DpushImage
 At the moment the tests need a running redis daemon. 
 
 ```sh
-docker run -d -p 6379:6379 redis:3.0.7
+docker run -d -p 6379:6379 redis:3.2.5-alpine
 ```
 
 I am trying to solve this programmatically in the future. 
